@@ -22,11 +22,11 @@ La rama **`dev`** se usa para desarrollo y pruebas antes de hacer merge a `main`
 
 ## 🛠 Tecnologías Utilizadas
 
-- HTML5  
-- CSS3  
-- JavaScript  
-- GitHub Actions (CI/CD)  
-- Surge.sh (Deploy)
+[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://es.wikipedia.org/wiki/HTML5)
+[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://es.wikipedia.org/wiki/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://es.wikipedia.org/wiki/JavaScript)
+[![GitHub Actions (CI/CD)](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://docs.github.com/en/actions)
+[![Surge.sh (Deploy)](https://img.shields.io/badge/Surge.sh-FF6B6B?style=for-the-badge&logo=surge&logoColor=white)](https://surge.sh)
 
 ---
 
