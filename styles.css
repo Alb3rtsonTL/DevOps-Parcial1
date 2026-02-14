@@ -134,7 +134,7 @@ body {
 }
 
 .hero-text {
-    max-width: 30ch;
+    max-width: 100%;
     color: var(--text-soft);
     display: block;
     white-space: nowrap;
