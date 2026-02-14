@@ -46,6 +46,7 @@
 body {
     min-height: 100vh;
     display: flex;
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     padding: 24px;
@@ -68,28 +69,30 @@ body {
     border-radius: 8px;
     padding: 6px 10px;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
-/* Layout */
-.layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
+.theme-toggle:hover {
+    background: var(--primary-faint);
 }
 
-/* Card */
-
+/* Card Principal */
 .card {
     position: relative;
-    width: min(420px, 92vw);
-    padding: 36px 28px;
+    width: min(460px, 92vw);
+    padding: 30px 26px;
     border-radius: var(--radius);
+
     background: linear-gradient(160deg, var(--card-bg-1), var(--card-bg-2));
+    backdrop-filter: blur(14px);
+
+    border: 1px solid var(--primary-faint);
     box-shadow: var(--shadow);
+
     overflow: hidden;
 }
 
+/* Borde animado */
 .card::before {
     content: "";
     position: absolute;
@@ -97,6 +100,7 @@ body {
     border-radius: inherit;
     border: 2px solid var(--primary-soft);
     animation: borderPulse 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .card-inner {
@@ -112,86 +116,181 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     text-align: center;
 }
 
-/* Hero */
-
-.hero-logo {
-    width: 60px;
-    opacity: 0.9;
-}
-
-.hero-name {
-    font-size: clamp(2rem, 5vw, 2.6rem);
-    font-weight: 800;
-    color: var(--primary);
-}
-
-.hero-text {
-    max-width: 30ch;
-    color: var(--text-soft);
-}
-
-hr {
-    width: 80px;
-    border: none;
-    border-top: 2px solid var(--primary-soft);
-}
-
-/* Button */
-.btn {
-    background: linear-gradient(135deg, var(--primary), var(--primary-soft));
-    color: #071018;
-    padding: 10px 18px;
+/* Badge */
+.badge {
+    background: linear-gradient(135deg, var(--card-bg-2), var(--card-bg-2));
+    color: var(--text-main);
+    padding: 8px 16px;
     border-radius: 8px;
     font-weight: 600;
     border: none;
     cursor: default;
 }
 
-.dots::after {
-    content: "";
-    animation: dots 1.5s steps(3, end) infinite;
+/* Status dot */
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    margin-right: 8px;
+    vertical-align: middle;
+    box-shadow: 0 0 6px rgba(34,197,94,0.25);
+    animation: pulseDot 1.8s infinite;
 }
 
-/* Page Footer */
-.page-footer {
-    font-size: 0.85rem;
+/* Hero */
+
+.hero-name {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.hero-text {
+    max-width: 100%;
     color: var(--text-soft);
-    opacity: 0.8;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.hero-text span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 20s linear infinite;
+}
+
+.hero-text:hover span {
+    animation-play-state: paused;
+}
+
+/* Grid Interna (info boxes) */
+
+.layout {
+    margin-top: 8px;
+    width: 100%;
+    display: grid;
+    gap: 12px;
+}
+
+/* Mini cards internas */
+
+.layout .card {
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--card-bg-2);
+    border: 1px solid var(--primary-faint);
+    box-shadow: none;
+    width: 100%;
+}
+
+.layout .card::before {
+    display: none;
+}
+
+.layout .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    transition: 0.25s ease;
+}
+
+/* Botones GitHub / Surge */
+
+.btns {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btns a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-soft);
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: 0.25s ease;
+}
+
+.btns a:hover {
+    background: var(--primary-faint);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.page-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.page-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.page-footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.page-footer a:hover {
+    color: var(--primary-soft);
+}
+
+.page-footer a:hover::after {
+    transform: scaleX(1);
 }
 
 /* Animations */
 
 @keyframes borderPulse {
-
-    0%,
-    100% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
-@keyframes dots {
-    0% {
-        content: "";
+@keyframes scrollText {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Dot animation */
+@keyframes pulseDot {
+    0% { opacity: .4; }
+    50% { opacity: 1; }
+    100% { opacity: .4; }
+}
+
+/* Responsive */
+
+@media (max-width: 520px) {
+    .layout {
+        grid-template-columns: 1fr;
     }
 
-    33% {
-        content: ".";
-    }
-
-    66% {
-        content: "..";
-    }
-
-    100% {
-        content: "...";
+    .btns {
+        flex-direction: column;
     }
 }
 

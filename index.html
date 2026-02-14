@@ -5,59 +5,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="language" content="es" />
-    <title>Project Landing · Coming Soon</title>
-    <meta name="description" content="Landing page estática y reutilizable para proyectos en desarrollo." />
-    <meta name="author" content="Project Landing Template" />
+    <title>DevOps Parcial 1 · CI/CD Deploy</title>
+    <meta name="description" content="Integración Continua con GitHub Actions y despliegue automático en Surge.sh" />
+    <meta name="author" content="Alb3rtsonTL - Albertson Terrero López" />
     <meta name="robots" content="index, follow" />
-    
+
     <!-- Favicon -->
     <link rel="icon" href="/img/logo.png" type="image/png" />
     <!-- Open Graph -->
-    <meta property="og:title" content="Project Landing · Coming Soon" />
-    <meta property="og:description" content="Proyecto en desarrollo. Vuelve pronto." />
+    <meta property="og:title" content="DevOps Parcial 1 · CI/CD Deploy" />
+    <meta property="og:description"
+        content="Integración Continua con GitHub Actions y despliegue automático en Surge.sh" />
     <meta property="og:image" content="/img/preview.png" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Project Landing · Coming Soon" />
-    <meta name="twitter:description" content="Proyecto en desarrollo. Vuelve pronto." />
+    <meta name="twitter:title" content="DevOps Parcial 1 · CI/CD Deploy" />
+    <meta name="twitter:description"
+        content="Integración Continua con GitHub Actions y despliegue automático en Surge.sh" />
     <meta name="twitter:image" content="/img/preview.png" />
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
-        rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Theme toggle -->
     <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-    <div class="layout">
-        <main class="card hero-card">
-            <div class="card-inner"></div>
-            <div class="card-content hero-content">
-                <img class="hero-logo" src="/img/logo.png" alt="Project logo" />
-                <h1 class="hero-name">Project Name</h1>
-                <p class="hero-text">
-                    Estamos trabajando en este proyecto.<br />
-                    Vuelve pronto.
-                </p>
-                <hr />
-                <button class="btn loading">
-                    En desarrollo<span class="dots"></span>
-                </button>
+    <main class="card">
+        <div class="card-inner"></div>
+        <div class="card-content">
+            <!-- Badge -->
+            <span class="badge">
+                <span class="status-dot"></span>
+                CI / CD · GitHub Actions → Surge
+            </span>
+            <h1 class="hero-name">
+                Deploy automático activo
+            </h1>
+            <p class="hero-text">
+                <span>
+                    Despliegue automático al hacer push en main ·
+                    HTML + CSS + JS + GitHub Actions + Surge.sh
+                </span>
+            </p>
+            <!-- Info grid -->
+            <div class="layout">
+                <div class="card">
+                    <div class="card-content">
+                        <strong>Parcial 1 - Electiva DevOps</strong>
+                        Deploy automático con Secret (SURGE_TOKEN)
+                        Basado en un template landing HTML / CSS / JS <br>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <strong>Ramas</strong>
+                        main → deploy automático · dev → desarrollo
+                    </div>
+                </div>
             </div>
-        </main>
-        <footer class="page-footer">
-            &copy; 2024–<span id="year"></span> Alb3rtsonTL
-        </footer>
-    </div>
-
+            <!-- Botones -->
+            <div class="btns">
+                <a href="https://github.com/Alb3rtsonTL/DevOps-Parcial1" target="_blank">
+                    GitHub Repo ↗
+                </a>
+                <a href="https://github.com/Alb3rtsonTL/alb3rtsontl-landing" target="_blank">
+                    Ver template ↗
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        &copy; <span id="year"></span>
+        <a href="https://github.com/Alb3rtsonTL" target="_blank">
+            <strong>Alb3rtsonTL</strong>
+        </a>
+    </footer>
     <script src="/scripts.js"></script>
+
 </body>
 
 </html>
